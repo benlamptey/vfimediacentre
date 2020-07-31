@@ -6,6 +6,7 @@ import Home from './screens/home';
 import ListingPage from './screens/ListingPage';
 import AudioPlayer from './screens/AudioPlayer';
 import {PlayerContextProvider} from './contexts/PlayerContexts';
+import Header from './components/header';
 
 const Stack = createStackNavigator();
 
@@ -15,8 +16,21 @@ function App() {
         <PlayerContextProvider>
             <NavigationContainer>
                 <Stack.Navigator initialRouteName="Home">
-                    <Stack.Screen name="Home" component={Home}/>
-                    <Stack.Screen name="ListingPage" component={ListingPage}/>
+                    <Stack.Screen
+                        name="Home"
+                        component={Home}
+                        options={{
+                            header: () => <Header
+                                title='VFI Media Centre'
+                                bgImage={require('./assets/images/headerBG.jpg')}/>
+                        }}/>
+                    <Stack.Screen
+                        name="ListingPage"
+                        component={ListingPage}
+                        options={{
+                            headerShown: false,
+                        }}
+                    />
                     <Stack.Screen name="AudioPlayer" component={AudioPlayer}/>
                 </Stack.Navigator>
             </NavigationContainer>

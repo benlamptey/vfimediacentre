@@ -49,6 +49,10 @@ const AudioPlayer = ({route, navigation}) => {
             }}>
                 <Icon name="play" size={40}/>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => playerContext.seekTo(60)}>
+                <Icon name="rotate-cw" size={40}/>
+            </TouchableOpacity>
+
             {isReady ? (
                 <View>
                     <MiniPlayer />
