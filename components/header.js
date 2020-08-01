@@ -1,15 +1,17 @@
 import React from 'react';
-import {Text, View, ImageBackground, StyleSheet, Image} from 'react-native';
+import {Text, View, ImageBackground, StyleSheet, Image, SafeAreaView, Platform} from 'react-native';
 
 export default function Header({bgImage, title}) {
     return (
         <ImageBackground style={styles.bgImage} source={bgImage}>
+            <SafeAreaView>
             <View style={styles.homeCard}>
                 <View style={styles.headerContent}>
                     <Image style={styles.headerIcon} source={require('../assets/images/vfi-logo.png')}/>
                     <Text style={styles.headerTitle}>{title}</Text>
                 </View>
             </View>
+            </SafeAreaView>
         </ImageBackground>
     );
 }
@@ -17,7 +19,7 @@ export default function Header({bgImage, title}) {
 const styles = StyleSheet.create({
     bgImage: {
         width: 'auto',
-        height: 90,
+        height: Platform.OS === "android" ? 90 : 130,
         padding: 10,
     },
     headerTitle: {

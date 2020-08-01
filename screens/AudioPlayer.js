@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View, TouchableOpacity, ActivityIndicator} from 'react-native';
+import {Text, View, TouchableOpacity, ActivityIndicator, StyleSheet} from 'react-native';
 import TrackPlayer from 'react-native-track-player';
 import MiniPlayer from '../components/miniPlayer';
 import {usePlayerContext} from '../contexts/PlayerContexts';
@@ -29,7 +29,7 @@ const AudioPlayer = ({route, navigation}) => {
 
     const soundItem = route.params;
     return (
-        <View>
+        <View style={styles.audioContainer}>
             <Text>Audio player screen </Text>
             <Text>{soundItem.title} </Text>
             <Text>{soundItem.link} </Text>
@@ -61,13 +61,13 @@ const AudioPlayer = ({route, navigation}) => {
             ) : (
                 <ActivityIndicator/>
             )}
-            <TouchableOpacity
-                onPress={() => console.log('loggin')}>
-                <Text style={{color: 'blue'}}>
-                    Google
-                </Text>
-            </TouchableOpacity>
+
         </View>
     );
 };
+const styles  = StyleSheet.create({
+    audioContainer: {
+        backgroundColor: '#340057',
+    }
+});
 export default AudioPlayer;

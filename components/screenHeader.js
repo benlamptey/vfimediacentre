@@ -1,27 +1,29 @@
 import React from 'react';
-import {Text, View, ImageBackground, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, ImageBackground, StyleSheet, TouchableOpacity, SafeAreaView, Platform} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 
 export default function ScreenHeader({bgImage, title, navigation}) {
     return (
         <View style={styles.headerContainer}>
-
-        <ImageBackground style={styles.bgImage} source={bgImage}>
-            <View style={styles.headerContent}>
-                <TouchableOpacity activeOpacity={.9} onPress={() => {navigation.goBack()}}>
-                    <Icon name="arrow-left-circle" size={40} color={'#fff'}/>
-                </TouchableOpacity>
-                <Text style={styles.headerTitle}>{title}</Text>
-            </View>
-        </ImageBackground>
+            <ImageBackground style={styles.bgImage} source={bgImage}>
+                <SafeAreaView>
+                    <View style={styles.headerContent}>
+                        <TouchableOpacity onPress={() => {navigation.goBack();}}>
+                            <Icon name="arrow-left-circle" size={40} color={'#fff'}/>
+                        </TouchableOpacity>
+                        <Text style={styles.headerTitle}>{title}</Text>
+                    </View>
+                </SafeAreaView>
+            </ImageBackground>
         </View>
+
     );
 }
 
 const styles = StyleSheet.create({
     bgImage: {
         width: 'auto',
-        height: 60,
+        height: Platform.OS === "android" ? 90 : 130,
         padding: 10,
     },
     headerTitle: {
@@ -38,19 +40,17 @@ const styles = StyleSheet.create({
         height: 70,
     },
     headerContainer: {
-        elevation:7,
+        elevation: 7,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 3 },
+        shadowOffset: {width: 0, height: 3},
         shadowOpacity: 0.5,
         shadowRadius: 5,
-
     },
     headerContent: {
         flexDirection: 'row',
-        backgroundColor: 'rgba(137,65,159,0.6)',
-        ...StyleSheet.absoluteFillObject,
+
         paddingTop: 10,
         paddingLeft: 10,
         opacity: 1,
-    }
+    },
 });
