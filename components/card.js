@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     homeCardContent: {},
     cardTitle: {
         color: '#fff',
-        fontSize: 24,
+        fontSize: 30,
         textAlign: 'center',
         textShadowColor: 'rgba(0, 2, 5, 0.75)',
         textShadowOffset: {width: 2, height: 5},

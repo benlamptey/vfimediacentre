@@ -22,7 +22,7 @@ function App() {
                         options={{
                             header: () => <Header
                                 title='VFI Media Centre'
-                                bgImage={require('./assets/images/headerBG.jpg')}/>
+                                bgImage={require('./assets/images/headerBG.jpg')}/>,
                         }}/>
                     <Stack.Screen
                         name="ListingPage"
@@ -31,7 +31,12 @@ function App() {
                             headerShown: false,
                         }}
                     />
-                    <Stack.Screen name="AudioPlayer" component={AudioPlayer}/>
+                    <Stack.Screen
+                        name="AudioPlayer"
+                        component={AudioPlayer}
+                        options={{
+                            headerShown: false,
+                        }}/>
                 </Stack.Navigator>
             </NavigationContainer>
         </PlayerContextProvider>

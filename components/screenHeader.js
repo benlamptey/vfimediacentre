@@ -9,7 +9,7 @@ export default function ScreenHeader({bgImage, title, navigation}) {
                 <SafeAreaView>
                     <View style={styles.headerContent}>
                         <TouchableOpacity onPress={() => {navigation.goBack();}}>
-                            <Icon name="arrow-left-circle" size={40} color={'#fff'}/>
+                            <Icon name="arrow-left-circle" size={40} color={'#fff'} style={styles.goBack}/>
                         </TouchableOpacity>
                         <Text style={styles.headerTitle}>{title}</Text>
                     </View>
@@ -48,9 +48,11 @@ const styles = StyleSheet.create({
     },
     headerContent: {
         flexDirection: 'row',
-
         paddingTop: 10,
         paddingLeft: 10,
         opacity: 1,
     },
+    goBack: {
+        elevation: 1
+    }
 });
