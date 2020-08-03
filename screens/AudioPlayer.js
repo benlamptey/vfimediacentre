@@ -10,7 +10,7 @@ import ScreenHeader from '../components/screenHeader';
 const AudioPlayer = ({route, navigation}) => {
     const playerContext = usePlayerContext();
     const soundItem = route.params;
-
+console.log(playerContext.mightBeInitial);
     const currentTrack = playerContext.currentTrack;
     if (currentTrack != null) {
         const match = currentTrack.id === soundItem.link;
@@ -45,7 +45,7 @@ const AudioPlayer = ({route, navigation}) => {
                     <Text style={styles.seconds}>-30</Text>
                 </TouchableOpacity>
 
-                {playerContext.isEmpty || playerContext.isStopped && (
+                {playerContext.mightBeInitial && (
                     <TouchableOpacity onPress={() => {
                         if (!soundItem) {
                             return;
@@ -109,7 +109,6 @@ const styles = StyleSheet.create({
         margin: 50,
     },
     artworkContainer: {
-        elevation: 14,
         alignItems: 'center',
     },
     audioTitle: {
@@ -117,13 +116,13 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontFamily: 'OpenSansCondensed-Bold',
         textAlign: 'center',
-        width: 300,
+        padding: 5,
     },
     audioAuthor: {
         color: '#fff',
         fontFamily: 'OpenSansCondensed-Light',
         fontSize: 20,
-        letterSpacing: 2,
+        letterSpacing: 1,
         textAlign: 'center',
     },
     audioControls: {
@@ -150,7 +149,6 @@ const styles = StyleSheet.create({
     },
     progressBar: {
         width: 300,
-        margin: 30,
         alignContent: 'center',
     },
     seconds: {

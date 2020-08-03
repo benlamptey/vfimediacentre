@@ -6,7 +6,6 @@ import RNTrackPlayer, {
     STATE_STOPPED,
     STATE_BUFFERING,
     STATE_NONE,
-    STATE_CONNECTING,
     Track,
 } from 'react-native-track-player';
 
@@ -88,9 +87,8 @@ export const PlayerContextProvider = (props) => {
         isPaused: playerState === STATE_PAUSED,
         isStopped: playerState === STATE_STOPPED,
         isBuffering: playerState === STATE_BUFFERING,
-        isConnecting: playerState === STATE_CONNECTING,
         isNone: playerState === STATE_NONE,
-        isEmpty: playerState === null,
+        mightBeInitial: currentTrack === null,
         currentTrack,
         pause,
         play,

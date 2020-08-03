@@ -3,6 +3,7 @@ import {Text, View, ImageBackground, StyleSheet, TouchableOpacity, SafeAreaView,
 import Icon from 'react-native-vector-icons/Feather';
 
 export default function ScreenHeader({bgImage, title, navigation}) {
+
     return (
         <View style={styles.headerContainer}>
             <ImageBackground style={styles.bgImage} source={bgImage}>
@@ -23,7 +24,7 @@ export default function ScreenHeader({bgImage, title, navigation}) {
 const styles = StyleSheet.create({
     bgImage: {
         width: 'auto',
-        height: Platform.OS === "android" ? 90 : 130,
+        height: Platform.OS === "android" ? 90 : 90,
         padding: 10,
     },
     headerTitle: {
@@ -48,11 +49,12 @@ const styles = StyleSheet.create({
     },
     headerContent: {
         flexDirection: 'row',
-        paddingTop: 10,
+        paddingTop: Platform.OS === 'android' ? 10 : 0,
         paddingLeft: 10,
         opacity: 1,
     },
     goBack: {
-        elevation: 1
+        elevation: 1,
+        height: 40,
     }
 });

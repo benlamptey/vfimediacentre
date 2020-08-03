@@ -20,6 +20,7 @@ function App() {
                         name="Home"
                         component={Home}
                         options={{
+                            headerShown: false,
                             header: () => <Header
                                 title='VFI Media Centre'
                                 bgImage={require('./assets/images/headerBG.jpg')}/>,
@@ -36,6 +37,8 @@ function App() {
                         component={AudioPlayer}
                         options={{
                             headerShown: false,
+                            headerMode: 'none'
+
                         }}/>
                 </Stack.Navigator>
             </NavigationContainer>

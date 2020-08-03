@@ -49,7 +49,6 @@ export default function ListingPage({route, navigation}) {
                             )}
                         />
                     )}
-
                 </View>
             </View>
             <MiniPlayer/>
@@ -119,6 +118,6 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginTop: 5,
-        marginRight:10
+        marginRight: 10,
     },
 });

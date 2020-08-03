@@ -1,7 +1,18 @@
 import React from 'react';
-import {StyleSheet, View, FlatList, TouchableOpacity} from 'react-native';
+import {
+    StyleSheet,
+    View,
+    FlatList,
+    TouchableOpacity,
+    ImageBackground,
+    SafeAreaView,
+    Image,
+    Text,
+    Platform,
+} from 'react-native';
 import Card from '../components/card';
 import TrackPlayer from 'react-native-track-player';
+import Header from '../components/header';
 
 export default function Home({navigation}) {
     const sections = [
@@ -71,6 +82,7 @@ export default function Home({navigation}) {
         TrackPlayer.setupPlayer().then(() => {
             console.log('player set');
             TrackPlayer.updateOptions({
+                stopWithApp: true,
                 capabilities: [
                     TrackPlayer.CAPABILITY_PLAY,
                     TrackPlayer.CAPABILITY_PAUSE,
@@ -80,32 +92,53 @@ export default function Home({navigation}) {
                     TrackPlayer.CAPABILITY_SEEK_TO,
                     TrackPlayer.CAPABILITY_PLAY_FROM_SEARCH,
                 ],
+                notificationCapabilities: [
+                    TrackPlayer.CAPABILITY_PLAY,
+                    TrackPlayer.CAPABILITY_PAUSE,
+                    TrackPlayer.CAPABILITY_SEEK_TO,
+                    TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+                    TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+                ],
+                compactCapabilities: [
+                    TrackPlayer.CAPABILITY_PLAY,
+                    TrackPlayer.CAPABILITY_PAUSE,
+                    TrackPlayer.CAPABILITY_SEEK_TO,
+                    TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+                    TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+                ],
                 jumpInterval: 30,
             });
         });
     }, []);
     return (
+        <View style={styles.homeWrapper}>
+            <Header
+                title='VFI Media Centre'
+                bgImage={require('../assets/images/headerBG.jpg')}/>
 
-        <View style={styles.cardComponents}>
-            <FlatList
-                numColumns={2}
-                keyExtractor={(item) => item.id}
-                data={sections}
-                renderItem={({item}) => (
-                    <TouchableOpacity onPress={() => navigation.navigate('ListingPage', item)}>
-                        <View style={styles.cardContainer}>
-                            <Card title={item.title} bgImage={item.backgroundImage}/>
-                        </View>
-                    </TouchableOpacity>
-                )}
-            />
+            <View style={styles.cardComponents}>
+                <FlatList
+                    numColumns={2}
+                    keyExtractor={(item) => item.id}
+                    data={sections}
+                    renderItem={({item}) => (
+                        <TouchableOpacity onPress={() => navigation.navigate('ListingPage', item)}>
+                            <View style={styles.cardContainer}>
+                                <Card title={item.title} bgImage={item.backgroundImage}/>
+                            </View>
+                        </TouchableOpacity>
+                    )}
+                />
+            </View>
         </View>
-
 
     );
 }
 
 const styles = StyleSheet.create({
+    homeWrapper: {
+        flex: 1,
+    },
     cardComponents: {
         flex: 1,
         alignItems: 'center',

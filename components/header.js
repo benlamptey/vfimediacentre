@@ -5,12 +5,10 @@ export default function Header({bgImage, title}) {
     return (
         <ImageBackground style={styles.bgImage} source={bgImage}>
             <SafeAreaView>
-            <View style={styles.homeCard}>
                 <View style={styles.headerContent}>
                     <Image style={styles.headerIcon} source={require('../assets/images/vfi-logo.png')}/>
                     <Text style={styles.headerTitle}>{title}</Text>
                 </View>
-            </View>
             </SafeAreaView>
         </ImageBackground>
     );
@@ -19,8 +17,9 @@ export default function Header({bgImage, title}) {
 const styles = StyleSheet.create({
     bgImage: {
         width: 'auto',
-        height: Platform.OS === "android" ? 90 : 130,
+        height: Platform.OS === 'android' ? 90 : 120,
         padding: 10,
+        // marginBottom: 20,
     },
     headerTitle: {
         color: '#fff',
@@ -34,9 +33,9 @@ const styles = StyleSheet.create({
     },
     headerIcon: {
         width: 70,
-        height:70,
+        height: 70,
     },
     headerContent: {
         flexDirection: 'row',
-    }
+    },
 });
