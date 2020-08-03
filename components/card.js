@@ -40,10 +40,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderRadius: 25,
     },
-    homeCardContent: {},
     cardTitle: {
         color: '#fff',
-        fontSize: 30,
+        fontSize: 26,
         textAlign: 'center',
         textShadowColor: 'rgba(0, 2, 5, 0.75)',
         textShadowOffset: {width: 2, height: 5},

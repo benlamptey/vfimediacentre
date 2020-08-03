@@ -2,7 +2,6 @@ import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import {usePlayerContext} from '../contexts/PlayerContexts';
-import MarqueeText from 'react-native-marquee';
 
 const MiniPlayer = () => {
     const playerContext = usePlayerContext();
@@ -13,16 +12,7 @@ const MiniPlayer = () => {
     return (
         <View>
             <View style={styles.miniPlayerWrapper}>
-                <MarqueeText
-                    style={{fontSize: 24, width: 300}}
-                    duration={15000}
-                    marqueeOnStart
-                    loop
-                    marqueeDelay={1000}
-                    marqueeResetDelay={1000}
-                >
                     <Text style={styles.miniText} numberOfLines={1}>{playerContext.currentTrack.title}</Text>
-                </MarqueeText>
 
                 {playerContext.isPaused && (
                     <TouchableOpacity onPress={() => playerContext.play()}>
@@ -35,8 +25,8 @@ const MiniPlayer = () => {
                     </TouchableOpacity>
                 )}
                 {playerContext.isStopped && (
-                    <TouchableOpacity onPress={() => null}>
-                        <Icon name="square" size={24} color={'#fff'}/>
+                    <TouchableOpacity onPress={() => playerContext.play()}>
+                        <Icon name="play" size={24} color={'#fff'}/>
                     </TouchableOpacity>
                 )}
             </View>

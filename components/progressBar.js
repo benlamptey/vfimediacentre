@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
-import {ProgressBar, Colors} from 'react-native-paper';
+import {Text, View, StyleSheet} from 'react-native';
 import TrackPlayer from 'react-native-track-player';
+import Slider from '@react-native-community/slider';
 
 export default class MyPlayerBar extends TrackPlayer.ProgressComponent {
+
     formatTime(seconds) {
         return seconds > 3600
             ?
@@ -19,14 +20,25 @@ export default class MyPlayerBar extends TrackPlayer.ProgressComponent {
             ].join(":").replace(/\b(\d)\b/g, "0$1")
     }
 
+    static defaultProps = {
+        value: 56,
+    };
+
+    state = {
+        value: this.props.value,
+    };
+
     render() {
 
         return (
-            <View style={styles.progressBarWrapper}>
-                <ProgressBar
-                    progress={this.getProgress()}
-                    buffered={this.getBufferedProgress()}
-                    color={'#fff'}
+            <View>
+                <Slider
+                    minimumTrackTintColor="#FFFFFF"
+                    maximumTrackTintColor="#000000"
+                    thumbTintColor="#661e78"
+                    onSlidingComplete={value => TrackPlayer.seekTo(value)}
+                    value={this.state.position}
+                    maximumValue={this.state.duration}
                 />
 
                 <View style={styles.positions}>

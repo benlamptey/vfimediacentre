@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View, FlatList, Button, TouchableOpacity, SafeAreaView} from 'react-native';
+import React from 'react';
+import {StyleSheet, View, FlatList, TouchableOpacity} from 'react-native';
 import Card from '../components/card';
 import TrackPlayer from 'react-native-track-player';
 
 export default function Home({navigation}) {
-    const [sections, setSections] = useState([
+    const sections = [
         {
             id: '1',
             backgroundImage: require('../assets/images/card-1.png'),
@@ -13,7 +13,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: '',
+            endpoint: 'http://vfi.org.uk/api/messages/bible-studies',
         },
         {
             backgroundImage: require('../assets/images/card-2.jpg'),
@@ -22,7 +22,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: '',
+            endpoint: 'http://vfi.org.uk/api/messages/friday-intercession',
             id: '2',
         },
         {
@@ -32,7 +32,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: '',
+            endpoint: 'http://vfi.org.uk/api/messages/sunday-intercession',
             id: '3',
         },
         {
@@ -42,7 +42,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: '',
+            endpoint: 'http://vfi.org.uk/api/messages/sunday-sermon',
             id: '4',
         },
         {
@@ -52,7 +52,7 @@ export default function Home({navigation}) {
             number: '+44 20 3937 1683',
             pin: '872 536 619#',
             meetingLink: 'https://meet.google.com/nyg-fgna-wze',
-            endpoint: '',
+            endpoint: 'http://vfi.org.uk/api/messages/morning-glory',
             id: '5',
         },
         {
@@ -62,13 +62,14 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: '',
+            endpoint: 'http://vfi.org.uk/api/messages/forty-days',
             id: '6',
         },
-    ]);
+    ];
 
     React.useEffect(() => {
         TrackPlayer.setupPlayer().then(() => {
+            console.log('player set');
             TrackPlayer.updateOptions({
                 capabilities: [
                     TrackPlayer.CAPABILITY_PLAY,

@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, View, TouchableOpacity, StyleSheet, Image, Platform} from 'react-native';
 import TrackPlayer from 'react-native-track-player';
 import {usePlayerContext} from '../contexts/PlayerContexts';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import Icon from 'react-native-vector-icons/Feather';
 import MyPlayerBar from '../components/progressBar';
 import ScreenHeader from '../components/screenHeader';
 
@@ -21,14 +21,14 @@ const AudioPlayer = ({route, navigation}) => {
                 id: soundItem.link,
                 url: soundItem.link,
                 artwork: 'http://www.vfi.org.uk/themes/custom/tbc/images/vfi-logo-min.png',
-                artist: 'another artist name',
+                artist: 'Victorious Family International',
             });
         }
     }
 
     return (
         <View style={styles.audioContainer}>
-            <ScreenHeader title={''} bgImage={require('../assets/images/card-1.png')} navigation={navigation}/>
+            <ScreenHeader title={''} bgImage={require('../assets/images/card-3.jpg')} navigation={navigation}/>
             <View style={styles.artworkContainer}>
                 <Image source={require('../assets/images/vfi-logo.png')} style={styles.audioArtwork}/>
             </View>
@@ -41,11 +41,11 @@ const AudioPlayer = ({route, navigation}) => {
             </View>
             <View style={styles.audioControls}>
                 <TouchableOpacity onPress={() => playerContext.seekTo(-30)}>
-                    <Icon name="undo" size={40} color={'#fff'}/>
+                    <Icon name="rotate-ccw" size={40} color={'#fff'}/>
                     <Text style={styles.seconds}>-30</Text>
                 </TouchableOpacity>
 
-                {playerContext.isStopped && (
+                {playerContext.isEmpty || playerContext.isStopped && (
                     <TouchableOpacity onPress={() => {
                         if (!soundItem) {
                             return;
@@ -86,7 +86,7 @@ const AudioPlayer = ({route, navigation}) => {
                 )}
 
                 <TouchableOpacity onPress={() => playerContext.seekTo(30)}>
-                    <Icon name="undo" size={40} color={'#fff'}/>
+                    <Icon name="rotate-cw" size={40} color={'#fff'}/>
                     <Text style={styles.seconds}>+30</Text>
                 </TouchableOpacity>
             </View>
@@ -130,11 +130,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 30,
     },
     playButtonContainer: {
         backgroundColor: '#fff',
-        borderColor: 'rgba(253, 149, 255, 0.2)',
+        borderColor: Platform.OS === 'android' ? 'rgba(253, 149, 255, 0.2)' : 'rgba(52,0,87, 0.5)',
         borderWidth: 16,
         width: 130,
         height: 130,
