@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         height: 70,
     },
     headerContainer: {
-        elevation: 7,
+        elevation: 9,
         shadowColor: '#000',
         shadowOffset: {width: 0, height: 3},
         shadowOpacity: 0.5,

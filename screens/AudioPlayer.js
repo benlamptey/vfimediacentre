@@ -28,72 +28,94 @@ console.log(playerContext.mightBeInitial);
 
     return (
         <View style={styles.audioContainer}>
-            <ScreenHeader title={''} bgImage={require('../assets/images/card-3.jpg')} navigation={navigation}/>
-            <View style={styles.artworkContainer}>
-                <Image source={require('../assets/images/vfi-logo.png')} style={styles.audioArtwork}/>
+            <View style={styles.headerView}>
+                <ScreenHeader title={''} bgImage={require('../assets/images/card-3.jpg')} navigation={navigation}/>
             </View>
-            <View style={styles.audioWrapper}>
-                <Text style={styles.audioTitle} numberOfLines={1}>{soundItem.title} </Text>
-                <Text style={styles.audioAuthor}>Victorious Family International</Text>
-                <View style={styles.progressBar}>
-                    <MyPlayerBar/>
+            <View style={styles.artworkView}>
+                <View style={styles.artworkContainer}>
+                    <Image source={require('../assets/images/vfi-logo.png')} style={styles.audioArtwork}/>
                 </View>
             </View>
-            <View style={styles.audioControls}>
-                <TouchableOpacity onPress={() => playerContext.seekTo(-30)}>
-                    <Icon name="rotate-ccw" size={40} color={'#fff'}/>
-                    <Text style={styles.seconds}>-30</Text>
-                </TouchableOpacity>
-
-                {playerContext.mightBeInitial && (
-                    <TouchableOpacity onPress={() => {
-                        if (!soundItem) {
-                            return;
-                        }
-
-                        playerContext.play({
-                                title: soundItem.title,
-                                id: soundItem.link,
-                                url: soundItem.link,
-                                artwork: 'http://www.vfi.org.uk/themes/custom/tbc/images/vfi-logo-min.png',
-                                artist: 'Victorious Family International',
-                            },
-                        );
-                    }} style={styles.playButtonContainer}>
-                        <Icon name="play" size={40} color={'#340057'} style={styles.playButton}/>
-                    </TouchableOpacity>
-                )}
-
-                {playerContext.isBuffering && (
-                    <TouchableOpacity onPress={() => {}} style={styles.playButtonContainer}>
-                        <Icon name="pause" size={40} color={'#340057'} style={styles.playButton}/>
-                    </TouchableOpacity>
-                )}
-
-                {playerContext.isPlaying && (
-                    <TouchableOpacity onPress={() => {
-                        playerContext.pause();
-                    }} style={styles.playButtonContainer}>
-                        <Icon name="pause" size={40} color={'#340057'} style={styles.playButton}/>
-                    </TouchableOpacity>
-                )}
-                {playerContext.isPaused && (
-                    <TouchableOpacity onPress={() => {
-                        playerContext.play();
-                    }} style={styles.playButtonContainer}>
-                        <Icon name="play" size={40} color={'#340057'} style={styles.playButton}/>
-                    </TouchableOpacity>
-                )}
-
-                <TouchableOpacity onPress={() => playerContext.seekTo(30)}>
-                    <Icon name="rotate-cw" size={40} color={'#fff'}/>
-                    <Text style={styles.seconds}>+30</Text>
-                </TouchableOpacity>
+            <View style={styles.metaInfoSliderView}>
+                <View style={styles.audioWrapper}>
+                    <Text style={styles.audioTitle} numberOfLines={1}>{soundItem.title} </Text>
+                    <Text style={styles.audioAuthor}>Victorious Family International</Text>
+                    <View style={styles.progressBar}>
+                        <MyPlayerBar/>
+                    </View>
+                </View>
             </View>
+            <View style={styles.controlView}>
+                <View style={styles.audioControls}>
+                    <TouchableOpacity onPress={() => playerContext.seekTo(-30)}>
+                        <Icon name="rotate-ccw" size={40} color={'#fff'}/>
+                        <Text style={styles.seconds}>-30</Text>
+                    </TouchableOpacity>
+
+                    {playerContext.mightBeInitial && (
+                        <TouchableOpacity onPress={() => {
+                            if (!soundItem) {
+                                return;
+                            }
+
+                            playerContext.play({
+                                    title: soundItem.title,
+                                    id: soundItem.link,
+                                    url: soundItem.link,
+                                    artwork: 'http://www.vfi.org.uk/themes/custom/tbc/images/vfi-logo-min.png',
+                                    artist: 'Victorious Family International',
+                                },
+                            );
+                        }} style={styles.playButtonContainer}>
+                            <Icon name="play" size={40} color={'#340057'} style={styles.playButton}/>
+                        </TouchableOpacity>
+                    )}
+
+                    {playerContext.isBuffering && (
+                        <TouchableOpacity onPress={() => {}} style={styles.playButtonContainer}>
+                            <Icon name="pause" size={40} color={'#340057'} style={styles.playButton}/>
+                        </TouchableOpacity>
+                    )}
+
+                    {playerContext.isPlaying && (
+                        <TouchableOpacity onPress={() => {
+                            playerContext.pause();
+                        }} style={styles.playButtonContainer}>
+                            <Icon name="pause" size={40} color={'#340057'} style={styles.playButton}/>
+                        </TouchableOpacity>
+                    )}
+                    {playerContext.isPaused && (
+                        <TouchableOpacity onPress={() => {
+                            playerContext.play();
+                        }} style={styles.playButtonContainer}>
+                            <Icon name="play" size={40} color={'#340057'} style={styles.playButton}/>
+                        </TouchableOpacity>
+                    )}
+
+                    <TouchableOpacity onPress={() => playerContext.seekTo(30)}>
+                        <Icon name="rotate-cw" size={40} color={'#fff'}/>
+                        <Text style={styles.seconds}>+30</Text>
+                    </TouchableOpacity>
+                </View>
+
+            </View>
+
         </View>
     );
 };
 const styles = StyleSheet.create({
+    headerView: {
+        flex: 1
+    },
+    artworkView: {
+      flex: 3,
+    },
+    metaInfoSliderView: {
+      flex: 2,
+    },
+    controlView: {
+      flex: 2,
+    },
     audioHeader: {
         height: Platform.OS === 'android' ? 90 : 130,
         borderBottomColor: '#ccc',
