@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VFIMediaCentre</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">_LNSFPxYlaPCDFYHxRRPZ8eJ0HxzMqZZUVs-d0</string>
 </resources>

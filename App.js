@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import  React, {Component, useEffect} from 'react';
+import React, {Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Home from './screens/home';
@@ -8,18 +8,18 @@ import AudioPlayer from './screens/AudioPlayer';
 import {PlayerContextProvider} from './contexts/PlayerContexts';
 import Header from './components/header';
 import SplashScreen from 'react-native-splash-screen';
+import codePush from 'react-native-code-push';
 
 const Stack = createStackNavigator();
 
-export default class App extends Component {
+class App extends Component {
     componentDidMount() {
         // do stuff while splash screen is shown
         // After having done stuff (such as async tasks) hide the splash screen
         SplashScreen.hide();
     }
 
-    render()
-    {
+    render() {
         return (
             <PlayerContextProvider>
                 <NavigationContainer>
@@ -45,7 +45,7 @@ export default class App extends Component {
                             component={AudioPlayer}
                             options={{
                                 headerShown: false,
-                                headerMode: 'none'
+                                headerMode: 'none',
 
                             }}/>
                     </Stack.Navigator>
@@ -54,3 +54,10 @@ export default class App extends Component {
         );
     }
 }
+
+const codePushOptions = {
+    installMode: codePush.InstallMode.IMMEDIATE,
+    checkFrequency: codePush.CheckFrequency.ON_APP_START,
+};
+// export default App;
+export default codePush(codePushOptions)(App);

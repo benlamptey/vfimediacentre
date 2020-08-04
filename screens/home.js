@@ -24,7 +24,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: 'https://vfi.org.uk/api/messages/bible-studies',
+            endpoint: 'https://www.vfi.org.uk/api/messages/bible-studies',
         },
         {
             backgroundImage: require('../assets/images/card-2.jpg'),
@@ -33,7 +33,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: 'https://vfi.org.uk/api/messages/friday-intercession',
+            endpoint: 'https://www.vfi.org.uk/api/messages/friday-intercession',
             id: '2',
         },
         {
@@ -43,7 +43,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: 'https://vfi.org.uk/api/messages/sunday-intercession',
+            endpoint: 'https://www.vfi.org.uk/api/messages/sunday-intercession',
             id: '3',
         },
         {
@@ -53,7 +53,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: 'https://vfi.org.uk/api/messages/sunday-sermon',
+            endpoint: 'https://www.vfi.org.uk/api/messages/sunday-sermon',
             id: '4',
         },
         {
@@ -63,7 +63,7 @@ export default function Home({navigation}) {
             number: '+44 20 3937 1683',
             pin: '872 536 619#',
             meetingLink: 'https://meet.google.com/nyg-fgna-wze',
-            endpoint: 'https://vfi.org.uk/api/messages/morning-glory',
+            endpoint: 'https://www.vfi.org.uk/api/messages/morning-glory',
             id: '5',
         },
         {
@@ -73,7 +73,7 @@ export default function Home({navigation}) {
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: 'https://vfi.org.uk/api/messages/forty-days',
+            endpoint: 'https://www.vfi.org.uk/api/messages/forty-days',
             id: '6',
         },
     ];
