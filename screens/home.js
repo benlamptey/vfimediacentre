@@ -4,11 +4,6 @@ import {
     View,
     FlatList,
     TouchableOpacity,
-    ImageBackground,
-    SafeAreaView,
-    Image,
-    Text,
-    Platform,
 } from 'react-native';
 import Card from '../components/card';
 import TrackPlayer from 'react-native-track-player';
