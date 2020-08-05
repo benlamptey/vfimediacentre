@@ -20,7 +20,7 @@ console.log(playerContext.mightBeInitial);
                 title: soundItem.title,
                 id: soundItem.link,
                 url: soundItem.link,
-                artwork: 'http://www.vfi.org.uk/themes/custom/tbc/images/vfi-logo-min.png',
+                artwork: 'https://www.vfi.org.uk/themes/custom/tbc/images/vfi-logo-min.png',
                 artist: 'Victorious Family International',
             });
         }
