@@ -10,7 +10,6 @@ import ScreenHeader from '../components/screenHeader';
 const AudioPlayer = ({route, navigation}) => {
     const playerContext = usePlayerContext();
     const soundItem = route.params;
-console.log(playerContext.mightBeInitial);
     const currentTrack = playerContext.currentTrack;
     if (currentTrack != null) {
         const match = currentTrack.id === soundItem.link;
@@ -62,7 +61,7 @@ console.log(playerContext.mightBeInitial);
                                     title: soundItem.title,
                                     id: soundItem.link,
                                     url: soundItem.link,
-                                    artwork: 'http://www.vfi.org.uk/themes/custom/tbc/images/vfi-logo-min.png',
+                                    artwork: 'https://www.vfi.org.uk/themes/custom/tbc/images/vfi-logo-min.png',
                                     artist: 'Victorious Family International',
                                 },
                             );
