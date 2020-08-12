@@ -75,7 +75,6 @@ export default function Home({navigation}) {
 
     React.useEffect(() => {
         TrackPlayer.setupPlayer().then(() => {
-            console.log('player set');
             TrackPlayer.updateOptions({
                 stopWithApp: true,
                 capabilities: [

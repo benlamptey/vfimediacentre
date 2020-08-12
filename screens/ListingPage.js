@@ -30,10 +30,12 @@ export default function ListingPage({route, navigation}) {
                         </View>
                     </TouchableOpacity>
                     {isLoading ? <ActivityIndicator/> : (
+                        <View style={styles.flatlistWrapper}>
                         <FlatList
                             style={styles.listContainer}
                             keyExtractor={(item) => item.id}
                             data={messages}
+                            contentContainerStyle={{ paddingBottom: 10}}
                             renderItem={({item}) => (
                                 <TouchableOpacity onPress={() => navigation.navigate('AudioPlayer', item)}>
                                     <View style={styles.listItem}>
@@ -48,10 +50,11 @@ export default function ListingPage({route, navigation}) {
                                 </TouchableOpacity>
                             )}
                         />
+                        </View>
                     )}
                 </View>
+                <MiniPlayer style={styles.miniPlayer}/>
             </View>
-            <MiniPlayer/>
         </View>
 
     );
@@ -61,13 +64,17 @@ const styles = StyleSheet.create({
     listingPageContainerr: {
         flex: 1,
     },
+    flatlistWrapper: {
+      flex: 1,
+    },
     listingPageContainer: {
         backgroundColor: '#450571',
         height: 'auto',
-        flex: 1,
+        flex: 2,
     },
     listingPageContent: {
         padding: 20,
+        flex: 1,
     },
     metaText: {
         color: '#fff',

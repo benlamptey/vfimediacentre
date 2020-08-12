@@ -56,7 +56,9 @@ class App extends Component {
 }
 
 const codePushOptions = {
-    installMode: codePush.InstallMode.IMMEDIATE,
+    installMode: codePush.InstallMode.ON_NEXT_RESUME,
+    minimumBackgroundDuration: 60 * 10,
+    updateDialog: true,
     checkFrequency: codePush.CheckFrequency.ON_APP_START,
 };
 // export default App;
