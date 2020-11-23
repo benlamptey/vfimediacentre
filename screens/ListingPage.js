@@ -24,7 +24,6 @@ export default function ListingPage({route, navigation}) {
                     <Text style={styles.metaTextTel}>Tel: {number}</Text>
                     <Text style={styles.metaTextTel}>Pin: {pin}</Text>
                     <TouchableOpacity onPress={() => Linking.openURL(meetingLink)}>
-
                         <View style={styles.joinBtn}>
                             <Text style={styles.metaJoin}>Join via Google Meet app</Text>
                         </View>

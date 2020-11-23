@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "319114782994",
+    "firebase_url": "https://vfi-media-centre-6c2a9.firebaseio.com",
+    "project_id": "vfi-media-centre-6c2a9",
+    "storage_bucket": "vfi-media-centre-6c2a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319114782994:android:69bf3bc2f547d361ed6bcb",
+        "android_client_info": {
+          "package_name": "com.vfimediacentre"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "319114782994-cqnvd6gfck2t3rvsbuo5lcjifpaeff3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzf98TMzOfDMEkkMh9ZYj-__12c6Coyfg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "319114782994-cqnvd6gfck2t3rvsbuo5lcjifpaeff3o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

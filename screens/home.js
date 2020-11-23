@@ -71,6 +71,16 @@ export default function Home({navigation}) {
             endpoint: 'https://www.vfi.org.uk/api/messages/forty-days',
             id: '6',
         },
+        {
+            backgroundImage: require('../assets/images/card-1.png'),
+            title: 'Mothers Outcry',
+            metaText: 'Saturdays - 10:00PM to 01:00AM',
+            number: '+44 20 3956 2929',
+            pin: '286 283 690#',
+            meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
+            endpoint: 'https://www.vfi.org.uk/api/messages/mothers-outcry',
+            id: '6',
+        },
     ];
 
     React.useEffect(() => {

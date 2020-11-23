@@ -8,6 +8,7 @@ import AudioPlayer from './screens/AudioPlayer';
 import {PlayerContextProvider} from './contexts/PlayerContexts';
 import Header from './components/header';
 import SplashScreen from 'react-native-splash-screen';
+import { navigationRef } from './RootNavigation';
 import codePush from 'react-native-code-push';
 
 const Stack = createStackNavigator();
@@ -22,7 +23,7 @@ class App extends Component {
     render() {
         return (
             <PlayerContextProvider>
-                <NavigationContainer>
+                <NavigationContainer ref={navigationRef}>
                     <Stack.Navigator>
                         <Stack.Screen
                             name="Home"

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Text, View, ImageBackground, StyleSheet, Image, SafeAreaView, Platform} from 'react-native';
+// import RemotePushController from '../components/RemotePushBtn'
 
 export default function Header({bgImage, title}) {
     return (
@@ -8,6 +9,8 @@ export default function Header({bgImage, title}) {
                 <View style={styles.headerContent}>
                     <Image style={styles.headerIcon} source={require('../assets/images/vfi-logo.png')}/>
                     <Text style={styles.headerTitle}>{title}</Text>
+                    {/* <RemotePushController /> */}
+
                 </View>
             </SafeAreaView>
         </ImageBackground>
