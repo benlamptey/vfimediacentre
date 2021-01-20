@@ -33,7 +33,7 @@ export default function Home({navigation}) {
         },
         {
             backgroundImage: require('../assets/images/card-3.jpg'),
-            title: 'Sunday Intercession',
+            title: 'Sunday Intercessions',
             metaText: 'Sunday - 3:00PM to 6:00PM',
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
@@ -43,7 +43,7 @@ export default function Home({navigation}) {
         },
         {
             backgroundImage: require('../assets/images/card-4.jpg'),
-            title: 'Sunday Sermon',
+            title: 'Sunday Sermons',
             metaText: 'Sunday - 3:00PM to 6:00PM',
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
@@ -72,15 +72,15 @@ export default function Home({navigation}) {
             id: '6',
         },
         {
-            backgroundImage: require('../assets/images/card-1.png'),
-            title: 'Mothers Outcry',
-            metaText: 'Saturdays - 10:00PM to 01:00AM',
+            backgroundImage: require('../assets/images/card-6.png'),
+            title: 'Monthly Fasting & Prayer',
+            metaText: 'First week of Each month - 8:00PM to 10:30PM',
             number: '+44 20 3956 2929',
             pin: '286 283 690#',
             meetingLink: 'https://meet.google.com/wzf-oqnj-ffg',
-            endpoint: 'https://www.vfi.org.uk/api/messages/mothers-outcry',
-            id: '6',
-        },
+            endpoint: 'https://www.vfi.org.uk/api/messages/month-fast',
+            id: '7',
+        }
     ];
 
     React.useEffect(() => {
