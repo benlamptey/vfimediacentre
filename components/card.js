@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
         shadowRadius: 5,
     },
     homeCard: {
-        backgroundColor: 'rgba(137,65,159,0.7)',
+        backgroundColor: 'rgba(69, 5, 113,0.3)',
         ...StyleSheet.absoluteFillObject,
         opacity: 1,
         alignItems: 'center',
